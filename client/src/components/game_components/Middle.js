@@ -1,11 +1,13 @@
 import React from 'react'
 import Card from './Card'
+import classes from '../styles/game.module.css'
 
 function Middle(props) {
 
     return (
         <div>
-            Middle
+            <div className={classes.placeholder} />
+
 
             {(props.middleList).map((item, index) => (
                 <Card

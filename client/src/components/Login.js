@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
 
+
 function Login() {
-    const [user, setUser] = useState(null);
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const login = () => { };
+
 
     return (
-        <div className="signUp"> <label>
-            Sign Up
+        <div className="login"> <label>
+            Login
         </label>
-            <input placeholder="First Name" onChange={(event) => {
-                setUser({ ...user, firstName: event.target.value });
+
+            <input placeholder="Username" onChange={(event) => {
+                setUsername(event.target.value);
             }} />
+            <input placeholder="Password" onChange={(event) => {
+                setPassword(event.target.value);
+            }} />
+            <button onClick={login}>
+                Login
+            </button>
         </div>
     )
 }

@@ -7,9 +7,11 @@ export default class Mat extends Component {
         return (
             <div>
                 <Grid
-                    templateColumns='repeat(4, 1fr)'
+                    templateColumns='repeat(6, 1fr)'
+                    templateRows='repeat(4, 1fr)'
                     gap={6}
                 >
+                    <GridItem />
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
@@ -25,72 +27,65 @@ export default class Mat extends Component {
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
+                    <GridItem />
+
+                    <GridItem />
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+                    <GridItem />
+
+                    <GridItem />
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+                    <GridItem />
+
+                    <GridItem />
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+                    <GridItem />
+
 
                 </Grid>
-                <Grid
-                    templateColumns='repeat(4, 1fr)'
-                    gap={6}
-                >
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
 
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                </Grid>
-                <Grid
-                    templateColumns='repeat(4, 1fr)'
-                    gap={6}
-                >
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                </Grid>
-
-                <Grid
-                    templateColumns='repeat(4, 1fr)'
-                    gap={6}
-                >
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                </Grid>
             </div>
         )
     }
