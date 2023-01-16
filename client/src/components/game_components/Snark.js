@@ -9,19 +9,30 @@ function Snark(props) {
 
             <Image
                 src={back}
-                height="200px"
-                width="130px"
+                height="140px"
+                width="90px"
             />
-            <div style={{ marginTop: "-160px" }}>
-                {/* <Card
-                    suit={props.snarkList[0].suit}
-                    number={props.snarkList[0].number}
-                    color={props.snarkList[0].color}
-                    faceUp={props.snarkList[0].faceUp}
-                    selected={props.snarkList[0].selected}
-                    sprite={props.snarkList[0].sprite}
-                    clickCard={props.clickCard}
-                /> */}
+
+            <div style={{ marginTop: "-110px" }}>
+                {props.snarkList.length === 0 ?
+                    <div></div>
+                    :
+                    <div onClick={
+                        () => { props.clickCard([props.snarkList[0]]) }
+
+                    }>
+                        <Card
+                            suit={props.snarkList[0].suit}
+                            number={props.snarkList[0].number}
+                            color={props.snarkList[0].color}
+                            faceUp={true}
+                            selected={props.snarkList[0].selected}
+                            sprite={props.snarkList[0].sprite}
+                            clickCard={props.clickCard}
+                        />
+                    </div>
+
+                }
             </div>
         </div>
     )

@@ -6,12 +6,11 @@ export default class Mat extends Component {
     render() {
         return (
             <div>
+                <div style={{ height: "30px" }} />
                 <Grid
-                    templateColumns='repeat(6, 1fr)'
-                    templateRows='repeat(4, 1fr)'
-                    gap={6}
+                    templateColumns='repeat(8, 1fr)'
+                    gap={1}
                 >
-                    <GridItem />
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
@@ -27,27 +26,7 @@ export default class Mat extends Component {
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
-                    <GridItem />
 
-                    <GridItem />
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-
-                    <GridItem>
-                        < Middle middleList={[]} />
-                    </GridItem>
-                    <GridItem />
-
-                    <GridItem />
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
@@ -63,9 +42,12 @@ export default class Mat extends Component {
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
-                    <GridItem />
-
-                    <GridItem />
+                </Grid>
+                <div style={{ height: "30px" }} />
+                <Grid
+                    templateColumns='repeat(8, 1fr)'
+                    gap={1}
+                >
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
@@ -81,11 +63,25 @@ export default class Mat extends Component {
                     <GridItem>
                         < Middle middleList={[]} />
                     </GridItem>
-                    <GridItem />
 
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
+
+                    <GridItem>
+                        < Middle middleList={[]} />
+                    </GridItem>
 
                 </Grid>
-
+                <div style={{ height: "30px" }} />
             </div>
         )
     }

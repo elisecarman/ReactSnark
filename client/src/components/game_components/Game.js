@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, GridItem, Image } from '@chakra-ui/react'
+import { Grid, GridItem, Image, Button } from '@chakra-ui/react'
 
 import classes from '../styles/game.module.css'
 import Build from './Build'
@@ -65,11 +65,30 @@ import diamond11 from "../../assets/diamonds/diamond11.png"
 import diamond12 from "../../assets/diamonds/diamond12.png"
 import diamond13 from "../../assets/diamonds/diamond13.png"
 
+function snarkClickCard(card) {
+    let state = new Game().state;
+
+    var selectedCards = state.selected;
+    if (selectedCards.length === 0) {
+        state["selected"] = card;
+        var list = state["snarkList"]
+        console.log(list)
+        var found = list.find(element => (this.identifyCard(element, card[0])))
+            (console.log(found))
+        this.setState(state);
+
+    }
+
+}
+
+function identifyCard(card1, card2) {
+    return (card1.suit === card2.suit && card1.number === card2.number)
+}
+
 export default class Game extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
 
             snarkList: [],
             buildList_1: [],
@@ -78,6 +97,8 @@ export default class Game extends Component {
             buildList_4: [],
             drawList: [],
             middleList: {},
+
+
             mounted: false,
             selected: []
         }
@@ -152,6 +173,7 @@ export default class Game extends Component {
         state["snarkList"] = sorted_deck.slice(10, 20);
         state["drawList"] = sorted_deck.slice(20);
 
+
         this.setState(state);
     }
 
@@ -162,20 +184,25 @@ export default class Game extends Component {
         }
         state["mounted"] = true;
         this.setState(state);
-        console.log(this.state);
     }
 
-    snarkClickCard = (card) => {
-        let state = this.state
-        var selectedCards = state.selected
+
+
+    /* snarkClickCard = (card) => {
+        let state = this.state;
+
+        var selectedCards = state.selected;
         if (selectedCards.length === 0) {
             state["selected"] = card;
-            card.selected = true;
-            this.setState(state)
+            var list = state["snarkList"]
+            console.log(list)
+            var found = list.find(element => (this.identifyCard(element, card[0])))
+                (console.log(found))
+            this.setState(state);
 
         }
 
-    }
+    } */
 
     drawClickCard = (card) => {
         let state = this.state
@@ -184,6 +211,7 @@ export default class Game extends Component {
             state["selected"] = card
             card.selected = true
         }
+
     }
 
     buildClickCard = () => {
@@ -195,10 +223,10 @@ export default class Game extends Component {
         }
     }
 
-    middleClickCard = () => {
+    middleClickCard = (card) => {
         var selectedCards = this.state.selected
         if (selectedCards.length === 0) {
-
+            return
         } else {
 
         }
@@ -210,48 +238,99 @@ export default class Game extends Component {
 
         return (
             <div className={classes.game_page} >
-                <div className={classes.table}>
-                    <Image
-                        src={table}
-                        width="100%"
-                    />
-                </div>
+                <Image
+                    src={table}
+                    width="100.2%"
+                    z-zIndex={0}
+                    position="absolute"
+                /* marginTop="-10px"
+                marginLeft="-10px"
+                marginBottom="-10px" */
+                />
+
+
                 <div className={classes.table_elements}>
-                    <Mat />
-
-                    {/* BUILD PILES AND SNARK PILE */}
                     <Grid
-                        templateColumns='repeat(5, 1fr)'
-                        gap={2}
+                        templateColumns='repeat(7, 1fr)'
+                        gap={0}
                     >
-                        <GridItem>
-                            <Build buildList={this.state.buildList_1} />
+                        <GridItem colSpan={1} >
+
+                            <Button
+                                colorScheme="red"
+                                size="md"
+                                variant="outline"
+                                marginLeft="30px"
+                                marginTop="30px"
+                            >
+                                Menu
+                            </Button>
+
+                            <Button
+                                colorScheme="red"
+                                size="md"
+                                variant="outline"
+                                marginLeft="30px"
+                                marginTop="30px"
+                            >
+                                Snark Rules
+                            </Button>
+
+
                         </GridItem>
 
-                        <GridItem>
-                            <Build buildList={this.state.buildList_2} />
+                        <GridItem colSpan={5}>
+                            <Mat />
+
+
+                            <Grid
+                                templateColumns='repeat(7, 1fr)'
+                                gap={0}
+                            >
+                                <GridItem colSpan={1}>
+                                    <Snark
+                                        snarkList={this.state.snarkList}
+                                        clickCard={snarkClickCard}
+                                    />
+                                </GridItem>
+
+                                <GridItem colSpan={3}>
+                                    <Grid
+                                        templateColumns='repeat(4, 1fr)'
+                                        gap={0}
+                                    >
+                                        <GridItem>
+                                            <Build buildList={this.state.buildList_1} />
+                                        </GridItem>
+
+                                        <GridItem>
+                                            <Build buildList={this.state.buildList_2} />
+                                        </GridItem>
+
+                                        <GridItem>
+                                            <Build buildList={this.state.buildList_3} />
+                                        </GridItem>
+
+                                        <GridItem>
+                                            <Build buildList={this.state.buildList_4} />
+                                        </GridItem>
+
+                                    </Grid>
+                                </GridItem>
+
+                                <GridItem colSpan={3}>
+                                    <Draw
+                                        drawList={this.state.drawList}
+                                        clickCard={this.drawClickCard}
+                                    />
+                                </GridItem>
+                            </Grid>
                         </GridItem>
 
-                        <GridItem>
-                            <Build buildList={this.state.buildList_3} />
-                        </GridItem>
-
-                        <GridItem>
-                            <Build buildList={this.state.buildList_4} />
-                        </GridItem>
-
-                        <GridItem>
-                            <Snark
-                                snarkList={this.state.snarkList}
-                                clickCard={this.snarkClickCard}
-                            />
-                        </GridItem>
+                        <GridItem colSpan={1} />
                     </Grid>
 
-                    <Draw
-                        drawList={this.state.drawList}
-                        clickCard={this.drawClickCard}
-                    />
+
                 </div>
             </div>
         )

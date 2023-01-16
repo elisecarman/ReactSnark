@@ -6,12 +6,12 @@ import SignUp from './components/SignUp';
 
 function App() {
   return (
-    <div>
-      <Game />
-      {/* <SignUp />
-      <Login /> */}
-    </div>
+    <Game />
+
   );
 }
+
+{/* <SignUp />
+      <Login /> */}
 
 export default App;

@@ -1,14 +1,21 @@
 .game_page {
-    width: 100%;
-    height: 100%;
-    overflow-y: 'auto';
-    scroll-behavior: 'smooth';
+    width: 101.3%;
+    /* height: 100%; */
+    /* overflow-y: 'auto'; */
+    /* overflow-x: 'hidden'; */
+    /* scroll-behavior: 'smooth'; */
+    overflow-x: hidden;
+    min-height: 100vh;
+    /* background-image: url("../../assets/table.png"); */
+    background-color: brown;
+    margin-top: -10px;
+    margin-left: -10px;
 }
 
 
 .table {
     z-index: 0;
-    position: absolute;
+    /* position: absolute; */
 }
 
 .table_elements {
@@ -20,7 +27,7 @@
 .placeholder {
     border: 2px dotted white;
     border-radius: 5px;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 140px;
     opacity: .5;
 }
